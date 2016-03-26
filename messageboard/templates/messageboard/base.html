@@ -12,10 +12,14 @@
         p { margin: 0.5em 0 }
         input {display:block; border:1 solid black}
         table.noframe, table.noframe td{border:0}
+        .curuser {
+            color: #0f0;
+        }
     </style>
 </head>
 <body>
-        {% block content %}
-        {% endblock %}
+    <div class="curuser">Welcome {{ curuser }}</div>
+    {% block content %}
+    {% endblock %}
 </body>
 </html>

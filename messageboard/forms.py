@@ -5,6 +5,7 @@ from django.contrib.auth.models import User
 from django.core.exceptions import ObjectDoesNotExist
 from messageboard.models import MsgPost
 
+
 class RegistrationForm(forms.Form):
     username = forms.CharField(label='用户名', max_length=20)
     email = forms.EmailField(label='电子邮箱', required=False)
@@ -28,6 +29,7 @@ class RegistrationForm(forms.Form):
         except ObjectDoesNotExist:
             return email
         raise forms.ValidationError('此电子邮箱已存在！')
+
     def clean_password2(self):
         if 'password1' in self.cleaned_data:
             password1 = self.cleaned_data['password1']
@@ -35,6 +37,7 @@ class RegistrationForm(forms.Form):
             if password1 == password2:
                 return password2
             raise forms.ValidationError('两次输入的密码不相同！')
+
 
 class MsgPostForm(forms.Form):
     title = forms.CharField(label='标题', max_length=30)
