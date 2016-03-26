@@ -15,8 +15,10 @@ Including another URLconf
 from django.conf.urls import include, url
 from django.contrib import admin
 from django.contrib.auth.views import login, logout
-from django.contrib.auth.views import password_change,password_change_done
-from messageboard.views import main, register_page, register_success, msg_post_page
+from django.contrib.auth.views import password_change, password_change_done
+from messageboard.views import (
+    main, register_page, register_success, msg_post_page
+)
 
 admin.autodiscover()
 
@@ -26,8 +28,10 @@ urlpatterns = [
     url(r'^main/register/$', register_page),
     url(r'accounts/login/$', login),
     url(r'main/logout/$', logout, {'next_page': '/main/'}),
-    url(r'^main/password/change/$', password_change,{'template_name':'registration/password_change.html'}),
-    url(r'main/password/change/done/$', password_change_done,{'template_name':'registration/password_change_success.html'}),
+    url(r'^main/password/change/$', password_change,
+        {'template_name': 'registration/password_change.html'}),
+    url(r'main/password/change/done/$', password_change_done,
+        {'template_name': 'registration/password_change_success.html'}),
     url(r'^main/register/success/$', register_success),
     url(r'^admin/', include(admin.site.urls)),
 ]
