@@ -22,7 +22,7 @@ def msg_list_page(request):
 def main(request):
     posts = MsgPost.objects.all()  # get all records
     return render_to_response(
-        'messageboard/main.html', {'posts': posts, 'curuser': request.user}
+        'messageboard/main.html', {'posts': posts, 'curuser': request.user, 'is_authenticated': request.user.is_authenticated()}
     )
 
 

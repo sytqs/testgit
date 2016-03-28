@@ -31,7 +31,8 @@ urlpatterns = [
     url(r'^main/password/change/$', password_change,
         {'template_name': 'registration/password_change.html'}),
     url(r'main/password/change/done/$', password_change_done,
-        {'template_name': 'registration/password_change_success.html'}),
+        {'template_name': 'registration/password_change_success.html'},
+        name='password_change_done'),
     url(r'^main/register/success/$', register_success),
     url(r'^admin/', include(admin.site.urls)),
 ]

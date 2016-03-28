@@ -6,11 +6,11 @@
         {% block title %}{% endblock %}
     </title>
     <style type="text/css">
-        body { color: #efd; background: #453; padding: 0 5em; margin: 0; font-size: 80%;size:12;font-family: sans-serif, serif; }
+        body { color: #efd; background: #453; padding: 0 5em; margin: 0; font-size: 80%;size:12px;font-family: sans-serif, serif; }
         h1 { padding: 1em 0.5em; background: #675;  }
         h2 { color: #bf8; border-top: 1.5px; margin-top: 1em }
         p { margin: 0.5em 0 }
-        input {display:block; border:1 solid black}
+        input {display:block; border:1px solid black}
         table.noframe, table.noframe td{border:0}
         .curuser {
             color: #0f0;
@@ -18,7 +18,7 @@
     </style>
 </head>
 <body>
-    <div class="curuser">Welcome {{ curuser }}</div>
+    <div class="curuser">Welcome {{ curuser }} ({{ is_authenticated }})</div>
     {% block content %}
     {% endblock %}
 </body>
